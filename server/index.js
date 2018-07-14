@@ -13,18 +13,13 @@ const ngrok =
     : false;
 const { resolve } = require('path');
 // const mongo = require('mongodb');
-const mongoose = require('mongoose');
-mongoose.Promise = require('bluebird');
+// const mongoose = require('mongoose');
+// mongoose.Promise = require('bluebird');
 
 const app = express();
-// const users = require('./routes/api/user');
+const patient = require('./routes/patient');
 
-mongoose
-  .connect('mongodb://localhost/try')
-  .then(() => console.log('connection succesful'))
-  .catch(err => console.error(err));
-
-// app.use('/api/user', users);
+app.use('/patient', patient);
 
 // If you need a backend, e.g. an API, add your custom backend-specific middleware here
 // app.use('/api', myApi);
